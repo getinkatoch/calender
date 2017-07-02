@@ -1,0 +1,43 @@
+<div id="clenderview">
+	<table class="cvheader">
+		<thead>
+			<tr>
+				<th>
+					<span>Sun</span>
+				</th>		
+				<th>
+					<span>Mon</span>
+				</th>
+				<th>
+					<span>Tue</span>
+				</th>
+				<th>
+					<span>Wed</span>
+				</th>
+				<th>
+					<span>Thu</span>
+				</th>
+				<th>
+					<span>Fri</span>
+				</th>
+				<th>
+					<span>Sat</span>
+				</th>			
+			</tr>
+		</thead>
+		<tbody class="monthViewBody">
+			<tr class="monthViewRow" ng-repeat="items in getMonthViewData()" style="width:100%">
+				<td ng-repeat="item in items">
+					<div ng-click="toggleModal({'startHour': item, 'duration' : event.duration})"  class="dateContainer">
+						<div class="dateCircle"><span>{{item.getDate()}}</span></div>
+						<div ng-repeat="event in getTopEvents(item)"> 
+							<div ng-click="toggleModal({'startHour':event.startDate, 'duration' : event.duration})" style="padding:0px 5px 0px 5px; border: 1px solid #38c6be; background:#afe4e8; height: 25px; color:#6c7e80; overflow: hidden; width: 95%; max-width: 95%; display: inline-block;; margin-bottom:2px">
+								<span>{{event.title}}</span>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

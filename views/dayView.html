@@ -1,0 +1,32 @@
+<div id="clenderview">
+	<table class="cvheader">
+		<thead>
+			<tr>
+				<th style="width:5%">
+				</th>				
+				<th style="width:95%; text-align:right;padding-right:10px">
+					<span >{{data.monthViewHeaderTitle}}</span>
+				</th>	
+			</tr>			
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in getDayViewData(data.calenderDate)">     
+				<td style="width:5%; background: #9675ce !important">
+					<span style="position:relative;bottom : 14px">{{item.timeLevel}}</span>
+				</td>
+				<td style="width:95%; height:50px; text-align:left">
+					<div ng-click="toggleModal(item.timeDivisions[0])" class="eventcontainerTop" style="width:100%; height:50%; border-right: 0px solid gray">
+						<div ng-click="toggleModal(item.timeDivisions[0])" style="padding:0px 5px 0px 5px; border: 1px solid #38c6be; position: absolute; background:#afe4e8; color:#6c7e80; width: 79%" ng-style="{height: ((25 * (data.database[item.timeDivisions[0].startHour.getFullYear().toString()][item.timeDivisions[0].startHour.getMonth()][item.timeDivisions[0].startHour.getDate()][item.timeDivisions[0].startHour.getHours()][0].duration / 30)) - 3) + 'px'}"  ng-if ="data.database[item.timeDivisions[0].startHour.getFullYear().toString()][item.timeDivisions[0].startHour.getMonth()][item.timeDivisions[0].startHour.getDate()][item.timeDivisions[0].startHour.getHours()][0].title">
+							{{data.database[item.timeDivisions[0].startHour.getFullYear().toString()][item.timeDivisions[0].startHour.getMonth()][item.timeDivisions[0].startHour.getDate()][item.timeDivisions[0].startHour.getHours()][0].title}}							
+						</div>
+					</div>
+					<div ng-click="toggleModal(item.timeDivisions[1])" class="eventcontainerTop" style="width:100%; height:50%; border-right: 0px solid gray">
+						<div ng-click="toggleModal(item.timeDivisions[1])" style="padding:0px 5px 0px 5px; border: 1px solid #38c6be; position: absolute; background:#afe4e8; color:#6c7e80; width: 79%" ng-style="{height: ((25 * (data.database[item.timeDivisions[1].startHour.getFullYear().toString()][item.timeDivisions[1].startHour.getMonth()][item.timeDivisions[1].startHour.getDate()][item.timeDivisions[1].startHour.getHours()][1].duration / 30)) - 3) + 'px'}"  ng-if ="data.database[item.timeDivisions[1].startHour.getFullYear().toString()][item.timeDivisions[1].startHour.getMonth()][item.timeDivisions[1].startHour.getDate()][item.timeDivisions[1].startHour.getHours()][1].title">
+							{{data.database[item.timeDivisions[1].startHour.getFullYear().toString()][item.timeDivisions[1].startHour.getMonth()][item.timeDivisions[1].startHour.getDate()][item.timeDivisions[1].startHour.getHours()][1].title}}							
+						</div>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

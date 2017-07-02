@@ -1,0 +1,5 @@
+<div ng-click="updateStatus(item.timeDivisions[0].startHour)" class="eventcontainerTop" style="width:100%; height:50%; border-right: 0px solid gray">
+	<div style="position: absolute; background:blue; color:white; width: 70%" ng-style="{height: (25 * (data.database[item.timeDivisions[0].startHour.getFullYear().toString()][item.timeDivisions[0].startHour.getMonth()][item.timeDivisions[0].startHour.getDate()][item.timeDivisions[0].startHour.getHours()][item.timeDivisions[0].startHour.getMinutes() % 30].duration / 30)) + 'px'}"  ng-if ="data.database[item.timeDivisions[0].startHour.getFullYear().toString()][item.timeDivisions[0].startHour.getMonth()][item.timeDivisions[0].startHour.getDate()][item.timeDivisions[0].startHour.getHours()][item.timeDivisions[0].startHour.getMinutes() % 30].title">
+		{{data.database[item.timeDivisions[0].startHour.getFullYear().toString()][item.timeDivisions[0].startHour.getMonth()][item.timeDivisions[0].startHour.getDate()][item.timeDivisions[0].startHour.getHours()][item.timeDivisions[0].startHour.getMinutes() % 30].title}}							
+	</div>
+</div>

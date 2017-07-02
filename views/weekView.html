@@ -1,0 +1,67 @@
+<div id="clenderview">
+	<table class="cvheader">
+		<thead>	
+			<tr>		
+				<th style="width:5%">
+					<span></span>
+				</th>			
+				<th>
+					<span>Sun {{data.currWeekDates[0].getDate()}}</span>
+				</th>		
+				<th>
+					<span>Mon {{data.currWeekDates[1].getDate()}}</span>
+				</th>
+				<th>
+					<span>Tue {{data.currWeekDates[2].getDate()}}</span>
+				</th>
+				<th>
+					<span>Wed {{data.currWeekDates[3].getDate()}}</span>
+				</th>
+				<th>
+					<span>Thu {{data.currWeekDates[4].getDate()}}</span>
+				</th>
+				<th>
+					<span>Fri {{data.currWeekDates[5].getDate()}}</span>
+				</th>
+				<th>
+					<span>Sat {{data.currWeekDates[6].getDate()}}</span>
+				</th>		
+			</tr>
+		</thead>
+		<tbody>		
+			<tr>
+				<td style="width:5%; background: #9675ce !important">
+					<table style="width:100%;">
+						<tbody>						
+							<tr ng-repeat="item in getWeekViewData()[0]">     
+								<td style="width:5%; height:50px; background: #9675ce !important">
+									<span style="position:relative;bottom : 14px">{{item.timeLevel}}</span>
+								</td>								
+							</tr>
+						</tbody>
+					</table>
+				</td>
+				<td ng-repeat="items in getWeekViewData()">
+					<table style="width:100%;">
+						<tbody>						
+							<tr ng-repeat="item in items">     
+								<td style="width:100%; height:50px; text-align:left;">
+									<div ng-click="toggleModal(item.timeDivisions[0])" class="eventcontainerTop" style="width:100%; height:50%; border-right: 0px solid gray">
+										<div ng-click="toggleModal(item.timeDivisions[0])" style="padding:0px 5px 0px 5px; border: 1px solid #38c6be; position: absolute; background:#afe4e8; color:#6c7e80; width: 11%" ng-style="{height: ((25 * (data.database[item.timeDivisions[0].startHour.getFullYear().toString()][item.timeDivisions[0].startHour.getMonth()][item.timeDivisions[0].startHour.getDate()][item.timeDivisions[0].startHour.getHours()][0].duration / 30)) - 3) + 'px'}"  ng-if ="data.database[item.timeDivisions[0].startHour.getFullYear().toString()][item.timeDivisions[0].startHour.getMonth()][item.timeDivisions[0].startHour.getDate()][item.timeDivisions[0].startHour.getHours()][0].title">
+											{{data.database[item.timeDivisions[0].startHour.getFullYear().toString()][item.timeDivisions[0].startHour.getMonth()][item.timeDivisions[0].startHour.getDate()][item.timeDivisions[0].startHour.getHours()][0].title}}							
+										</div>
+									</div>
+									<div ng-click="toggleModal(item.timeDivisions[1])" class="eventcontainerTop" style="width:100%; height:50%; border-right: 0px solid gray">
+										<div ng-click="toggleModal(item.timeDivisions[1])" style="padding:0px 5px 0px 5px; border: 1px solid #38c6be; position: absolute; background:#afe4e8; color:#6c7e80; width: 11%" ng-style="{height: ((25 * (data.database[item.timeDivisions[1].startHour.getFullYear().toString()][item.timeDivisions[1].startHour.getMonth()][item.timeDivisions[1].startHour.getDate()][item.timeDivisions[1].startHour.getHours()][1].duration / 30)) - 3) + 'px'}"  ng-if ="data.database[item.timeDivisions[1].startHour.getFullYear().toString()][item.timeDivisions[1].startHour.getMonth()][item.timeDivisions[1].startHour.getDate()][item.timeDivisions[1].startHour.getHours()][1].title">
+											{{data.database[item.timeDivisions[1].startHour.getFullYear().toString()][item.timeDivisions[1].startHour.getMonth()][item.timeDivisions[1].startHour.getDate()][item.timeDivisions[1].startHour.getHours()][1].title}}							
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
